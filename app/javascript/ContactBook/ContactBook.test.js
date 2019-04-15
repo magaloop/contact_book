@@ -1,0 +1,84 @@
+/* eslint-env jest */
+import React from 'react'
+import ContactBook, { ContactBookUI, createContact } from './ContactBook.jsx'
+import graphQlClient from 'graphql/client.js'
+import { shallow } from 'enzyme'
+import * as queries from 'graphql/queries.gql'
+import axios from 'axios'
+import csrfToken from 'helpers/csrfToken.js'
+
+jest.mock('graphql/client.js')
+jest.mock('axios')
+jest.mock('helpers/csrfToken.js')
+
+describe('ContactBook', () => {
+  it('wraps ContactBookUI in a GraphQL Query', () => {
+    graphQlClient.query.mockResolvedValue({ data: null })
+    const wrap = shallow(<ContactBook />)
+
+    const query = wrap.find('Query')
+    expect(query).toHaveProp('query', queries.contactBook)
+
+    const childrenWrap = query.renderProp('children')({ loading: true, error: null, data: null })
+    expect(childrenWrap.find('ContactBookUI')).toExist()
+  })
+})
+
+describe('ContactBookUI', () => {
+  const loading = false
+  const error = null
+  const data = null
+  const props = { loading, error, data }
+
+  it('renders loader while loading', () => {
+    const wrap = shallow(<ContactBookUI {...props} loading />)
+    expect(wrap.find('.loading')).toExist()
+    expect(wrap.find('.error')).not.toExist()
+    expect(wrap.find('ContactList')).not.toExist()
+  })
+
+  it('renders error message if an error is present', () => {
+    const message = 'Something went boom'
+    const error = new Error(message)
+    const wrap = shallow(<ContactBookUI {...props} error={error} />)
+    expect(wrap.find('.loading')).not.toExist()
+    expect(wrap.find('.error')).toHaveText(message)
+    expect(wrap.find('ContactList')).not.toExist()
+  })
+
+  it('renders address list when data is received', () => {
+    const contacts = [{ name: 'One' }, { name: 'Two' }]
+    const data = { contacts }
+    const wrap = shallow(<ContactBookUI {...props} data={data} />)
+    expect(wrap.find('.loading')).not.toExist()
+    expect(wrap.find('.error')).not.toExist()
+    expect(wrap.find('ContactList')).toHaveProp('contacts', contacts)
+  })
+})
+
+describe('createContact', () => {
+  const name = 'Some Contact Name'
+  const address = 'Nice street 123'
+  const postalCode = '12345'
+  const city = 'Cozy Town'
+  const token = 'some-csrf-token'
+
+  it('makes a POST request to /contact', () => {
+    csrfToken.mockReturnValue(token)
+
+    createContact({ name, address, postalCode, city })
+
+    expect(axios.post).toHaveBeenCalledWith('/contacts', {
+      contact: {
+        name,
+        address,
+        postal_code: postalCode,
+        city
+      },
+      authenticity_token: token
+    }, {
+      headers: { 'Accept': 'application/json' },
+      responseType: 'json'
+    })
+  })
+})

@@ -1,0 +1,18 @@
+.ContactList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    padding: 1rem 0;
+    border-bottom: 1px solid #cdd;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    b, span {
+      display: block;
+    }
+  }
+}

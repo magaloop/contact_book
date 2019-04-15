@@ -1,0 +1,14 @@
+[
+  { "name": "Ada Camino", "address": "Rykestrasse 48", "zip": "10123", "city": "Berlin" },
+  { "name": "Ahmed Ozim", "address": "Murray st. 84", "zip": "50167", "city": "London" },
+  { "name": "Andrea Flora", "address": "Kastanienallee 5", "zip": "10435", "city": "Berlin" },
+  { "name": "Boris Blume", "address": "Danzigerstr. 186", "zip": "10543", "city": "Berlin" },
+  { "name": "Cleo Fortuna", "address": "via Plinio 15", "zip": "20312", "city": "Milano" },
+  { "name": "Dania Porter", "address": "via Bergamo 51", "zip": "40354", "city": "Monza" },
+  { "name": "Eva Floss", "address": "Bancroft Rd.", "zip": "50345", "city": "London" },
+  { "name": "Flo Gierz", "address": "via Cavallotti 98", "zip": "40738", "city": "Monza" },
+  { "name": "Stefano Semplice", "address": "via Padova 20", "zip": "20115", "city": "Milano" },
+  { "name": "Simone Ramirez", "address": "Schlesisches Str. 20", "zip": "10312", "city": "Berlin" },
+  { "name": "Zacinto Boulanger", "address": "Eton Ave. 7", "zip": "50798", "city": "London" }
+]
+

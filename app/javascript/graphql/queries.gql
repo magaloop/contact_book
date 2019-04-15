@@ -1,0 +1,8 @@
+query contactBook {
+  contacts {
+    name,
+    address,
+    postalCode,
+    city
+  }
+}
