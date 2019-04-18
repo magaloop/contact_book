@@ -1,9 +1,9 @@
 # Contact Book
 
-This Ruby on Rails + React application is the starting point for several
-interview tasks for software developer jobs at Magaloop. Interview tasks are
-formulated as features to be implemented in this app, and will be provided to
-you after receiving your job application.
+This Ruby on Rails + React application is the starting point for the interview
+tasks for software developer jobs at Magaloop. Interview tasks are formulated as
+features to be implemented in this app, and will be provided to you after
+receiving your job application, along with detailed instructions.
 
 When working on the interview task:
 
@@ -12,12 +12,19 @@ When working on the interview task:
 
   * Write tests. Whether to work with TDD or to write tests later is completely
     up to you, but we do appreciate good tests, that make code easy to change
-    and evolve.
+    and evolve. The existing app functionality is tested, so you can check the
+    existing tests to adopt a similar testing style.
 
   * Follow the project style. We won't nitpick on details, but generally
     following the project coding style, formatting and conventions is a plus.
     You can run the linter to check your code formatting (see the "How To"
     section in this file).
+
+  * You can introduce new libraries, but also try to keep it simple and only add
+    new dependencies if it makes sense.
+
+  * If you want to explain something about your solution, please do by editing
+    the SOLUTION_README.md file in the application root folder.
 
 ## Setup
 
@@ -62,8 +69,8 @@ This app is built with:
 ### Backend
 
 The project backend is a plain Ruby on Rails 5.2 app, using the
-[graphql-ruby](https://graphql-ruby.org) gem to expose a GraphQL API to the
-frontend app.
+[graphql-ruby](https://graphql-ruby.org) gem to expose a GraphQL API and some
+restful endpoints to the frontend app.
 
 The test framework is [rspec](http://rspec.info) and
 [rspec-rails](https://github.com/rspec/rspec-rails).
@@ -75,7 +82,7 @@ setup.
 
 The frontend is a React JS single page application, using [Apollo
 Client](https://www.apollographql.com/docs/react/) to perform queries to the
-GraphQL API exposed by the backend, or [axios](https://github.com/axios/axios)
+GraphQL API exposed by the backend, and [axios](https://github.com/axios/axios)
 to perform requests to the REST endpoints offered by the backend.
 
 The app uses [Webpack](https://webpack.js.org) via the
