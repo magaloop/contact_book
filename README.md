@@ -26,6 +26,12 @@ When working on the interview task:
   * If you want to explain something about your solution, please do by editing
     the SOLUTION_README.md file in the application root folder.
 
+**NOTE:** your solution to the interview task is private, so please do not subit
+it as a pull request or as a public repository. Instructions on how to properly
+submit your solution will be provided to you after your job application.
+
+Have fun :)
+
 ## Setup
 
 Make sure you have all the development dependencies installed:
