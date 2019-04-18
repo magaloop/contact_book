@@ -39,7 +39,7 @@ NewContactUI.propTypes = {
   onSuccess: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.object,
-  data: PropTypes.object
+  data: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
 }
 
 const NewContactForm = ({ createContact, onCancel }) => {

@@ -81,6 +81,17 @@ describe('NewContactUI', () => {
     expect(wrap.find('NewContactForm')).not.toExist()
   })
 
+  it('hides the form and calls onSuccess upon receiving data = false', () => {
+    const onSuccess = jest.fn()
+    const wrap = mount(<NewContactUI {...props} onSuccess={onSuccess} />)
+    const data = false
+
+    wrap.setProps({ loading: false, data })
+
+    expect(onSuccess).toHaveBeenCalledWith(data)
+    expect(wrap.find('NewContactForm')).not.toExist()
+  })
+
   it('shows an alert with the error message upon receiving an error', () => {
     const onSuccess = jest.fn()
     const wrap = mount(<NewContactUI {...props} onSuccess={onSuccess} />)

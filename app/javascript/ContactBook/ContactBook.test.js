@@ -1,6 +1,6 @@
 /* eslint-env jest */
 import React from 'react'
-import ContactBook, { ContactBookUI, createContact } from './ContactBook.jsx'
+import ContactBook, { ContactBookUI, createContact, findNearDuplicates } from './ContactBook.jsx'
 import graphQlClient from 'graphql/client.js'
 import { shallow } from 'enzyme'
 import * as queries from 'graphql/queries.gql'
@@ -63,7 +63,7 @@ describe('createContact', () => {
   const city = 'Cozy Town'
   const token = 'some-csrf-token'
 
-  it('makes a POST request to /contact', () => {
+  it('makes a POST request to /contacts', () => {
     csrfToken.mockReturnValue(token)
 
     createContact({ name, address, postalCode, city })
@@ -77,6 +77,29 @@ describe('createContact', () => {
       },
       authenticity_token: token
     }, {
+      headers: { 'Accept': 'application/json' },
+      responseType: 'json'
+    })
+  })
+})
+
+describe('findNearDuplicates', () => {
+  const name = 'Some Contact Name'
+  const address = 'Nice street 123'
+  const postalCode = '12345'
+  const city = 'Cozy Town'
+  const token = 'some-csrf-token'
+
+  it('makes a GET request to /contacts/near_duplicates', () => {
+    findNearDuplicates({ name, address, postalCode, city })
+
+    expect(axios.get).toHaveBeenCalledWith('/contacts/near_duplicates', {
+      params: {
+        'contact[name]': name,
+        'contact[address]': address,
+        'contact[postal_code]': postalCode,
+        'contact[city]': city
+      },
       headers: { 'Accept': 'application/json' },
       responseType: 'json'
     })

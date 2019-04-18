@@ -19,6 +19,29 @@ RSpec.describe Contact, type: :model do
     end
   end
 
+  it 'allows only digits and letters in postal code' do
+    contact = Contact.new(valid_attributes)
+
+    contact.postal_code = 'with space'
+    expect(contact).not_to be_valid
+
+    contact.postal_code = '%1234'
+    expect(contact).not_to be_valid
+
+    contact.postal_code = 'AB1234'
+    expect(contact).to be_valid
+  end
+
+  it 'onforces that postal code is between 4 and 7 characters long' do
+    contact = Contact.new(valid_attributes)
+
+    contact.postal_code = '12345678'
+    expect(contact).not_to be_valid
+
+    contact.postal_code = '123'
+    expect(contact).not_to be_valid
+  end
+
   it 'is valid when all attributes are set correctly' do
     contact = Contact.new(valid_attributes)
     expect(contact).to be_valid
