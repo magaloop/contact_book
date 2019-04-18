@@ -5,7 +5,7 @@ tasks for software developer jobs at Magaloop. Interview tasks are formulated as
 features to be implemented in this app, and will be provided to you after
 receiving your job application, along with detailed instructions.
 
-![Contact Book screenshot](https://raw.github.com/magaloop/contact_book/master/screenshot.png | width=570)
+<img src="https://raw.github.com/magaloop/contact_book/master/screenshot.png" width="570" alt="Contact Book screenshot">
 
 When working on the interview task:
 
