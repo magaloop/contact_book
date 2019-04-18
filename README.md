@@ -26,8 +26,8 @@ When working on the interview task:
   * You can introduce new libraries, but try to keep it simple: only add
     dependencies that make your solution more solid in your opinion.
 
-  * If you want to explain something about your solution, please do by editing
-    the SOLUTION_README.md file in the application root folder.
+  * If you want to explain something about your solution, please do so by
+    editing the SOLUTION_README.md file in the project root folder.
 
 **NOTE:** your solution to the interview task is private, so please do not
 submit it as a pull request or as a public repository. Instructions on how to
