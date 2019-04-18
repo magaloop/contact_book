@@ -1,16 +1,17 @@
 # Contact Book
 
-This Ruby on Rails + React application is the starting point for the interview
-tasks for software developer jobs at Magaloop. Interview tasks are formulated as
-features to be implemented in this app, and will be provided to you after
-receiving your job application, along with detailed instructions.
+This Ruby on Rails and React JS application is the starting point for the
+interview tasks for software developer jobs at Magaloop. Interview tasks are
+formulated as features to be implemented in this app, and will be provided to
+you after receiving your job application, along with detailed instructions.
 
 <img src="https://raw.github.com/magaloop/contact_book/master/screenshot.png" width="570" alt="Contact Book screenshot">
 
 When working on the interview task:
 
   * **Keep it simple**. No need to impress us with clever tricks. We appreciate
-    working solutions that get the job done and are simple to understand.
+    working solutions that get the job done and are simple to understand and
+    maintain. If you find a solution that takes little code, that's great.
 
   * **Write tests**. Whether to work with TDD or to write tests later is
     completely up to you, but we do appreciate good tests, that make code easy
@@ -22,17 +23,19 @@ When working on the interview task:
     You can run the linter to check your code formatting (see the "How To"
     section in this file).
 
-  * You can introduce new libraries, but also try to keep it simple and only add
-    new dependencies if it makes sense.
+  * You can introduce new libraries, but try to keep it simple: only add
+    dependencies that make your solution more solid in your opinion.
 
   * If you want to explain something about your solution, please do by editing
     the SOLUTION_README.md file in the application root folder.
 
-**NOTE:** your solution to the interview task is private, so please do not subit
-it as a pull request or as a public repository. Instructions on how to properly
-submit your solution will be provided to you after your job application.
+**NOTE:** your solution to the interview task is private, so please do not
+submit it as a pull request or as a public repository. Instructions on how to
+properly submit your solution will be provided to you after your job
+application.
 
 Have fun :)
+
 
 ## Setup
 
@@ -71,8 +74,8 @@ document properly.
 
 This app is built with:
 
-  - Ruby on Rails on the backend
-  - React on the frontend
+  - [Ruby on Rails](https://rubyonrails.org) on the backend
+  - [React JS](https://reactjs.org) on the frontend
 
 ### Backend
 
@@ -83,8 +86,11 @@ restful endpoints to the frontend app.
 The test framework is [rspec](http://rspec.info) and
 [rspec-rails](https://github.com/rspec/rspec-rails).
 
-_Note:_ the `spring` and `turbolinks` gems have been removed, to simplify the
-setup.
+_Note:_ the `spring` and `turbolinks` gems have been removed from the app, to
+simplify the setup and avoid issues difficult to troubleshoot.
+
+The app uses the SQLite database, which simplifies the setup of the development
+environment.
 
 ### Frontend
 
