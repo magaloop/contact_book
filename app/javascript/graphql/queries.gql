@@ -1,5 +1,6 @@
 query contactBook {
   contacts {
+    id,
     name,
     address,
     postalCode,

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Layout from '../Layout/Layout.jsx'
 import { ApolloProvider, Query } from 'react-apollo'
 import ContactList from '../ContactList/ContactList.jsx'
+import ContactDetails from '../ContactDetails/ContactDetails.jsx'
 import NewContact from '../NewContact/NewContact.jsx'
 import * as queries from '../graphql/queries.gql'
 import graphQlClient from '../graphql/client.js'
@@ -20,13 +21,17 @@ const ContactBook = () => (
 
 const ContactBookUI = ({ loading, error, data, refetch }) => {
   const { contacts } = data || {}
+  const [selectedContact, setSelectedContact] = useState(null)
+  const selectContact = (contact) => setSelectedContact(contact)
+  const deselectContact = () => setSelectedContact(null)
 
   return (
     <Layout>
       <div className='ContactBook'>
         { loading && <span className='loading'>Loading...</span> }
         { error && <span className='error'>{ error.message || 'An unexpected error occurred' }</span> }
-        { contacts && <ContactList contacts={contacts} /> }
+        { contacts && <ContactList contacts={contacts} selectContact={selectContact} /> }
+        { selectedContact && <ContactDetails contact={selectedContact} deselectContact={deselectContact} /> }
         <NewContact createContact={checkDuplicatesAndCreate} onSuccess={refetch} />
       </div>
     </Layout>

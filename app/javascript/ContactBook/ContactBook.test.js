@@ -53,6 +53,28 @@ describe('ContactBookUI', () => {
     expect(wrap.find('.loading')).not.toExist()
     expect(wrap.find('.error')).not.toExist()
     expect(wrap.find('ContactList')).toHaveProp('contacts', contacts)
+    expect(wrap.find('ContactList')).toHaveProp('selectContact', expect.any(Function))
+  })
+
+  it('shows ContactDetails when a contact is selected', () => {
+    const contacts = [
+      { id: '1', name: 'One', address: 'Onestr. 1', postalCode: '11111', city: 'Milano' },
+      { id: '2', name: 'Two', address: 'Twostr. 2', postalCode: '22222', city: 'Milano' }
+    ]
+    const data = { contacts }
+    const wrap = shallow(<ContactBookUI {...props} data={data} />)
+
+    expect(wrap.find('ContactDetails')).not.toExist()
+
+    wrap.find('ContactList').prop('selectContact')(contacts[1])
+
+    const contactDetails = wrap.update().find('ContactDetails')
+    expect(contactDetails).toExist()
+    expect(contactDetails).toHaveProp('contact', contacts[1])
+    expect(contactDetails).toHaveProp('deselectContact', expect.any(Function))
+
+    wrap.find('ContactDetails').prop('deselectContact')()
+    expect(wrap.update().find('ContactDetails')).not.toExist()
   })
 })
 

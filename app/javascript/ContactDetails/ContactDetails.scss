@@ -1,0 +1,11 @@
+.ContactDetails {
+  address {
+    margin: 1em 0;
+    font-style: normal;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+}
