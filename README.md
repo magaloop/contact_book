@@ -12,10 +12,10 @@ When working on the interview task:
   * **Keep it simple**. No need to impress us with clever tricks. We appreciate
     working solutions that get the job done and are simple to understand.
 
-  * **Write tests**. Whether to work with TDD or to write tests later is completely
-    up to you, but we do appreciate good tests, that make code easy to change
-    and evolve. The existing app functionality is tested, so you can check the
-    existing tests to adopt a similar testing style.
+  * **Write tests**. Whether to work with TDD or to write tests later is
+    completely up to you, but we do appreciate good tests, that make code easy
+    to change and evolve. You can check the existing tests to adopt a similar
+    testing style.
 
   * **Follow the project style**. We won't nitpick on details, but generally
     following the project coding style, formatting and conventions is a plus.
