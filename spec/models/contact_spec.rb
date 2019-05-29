@@ -32,7 +32,7 @@ RSpec.describe Contact, type: :model do
     expect(contact).to be_valid
   end
 
-  it 'onforces that postal code is between 4 and 7 characters long' do
+  it 'enforces that postal code is between 4 and 7 characters long' do
     contact = Contact.new(valid_attributes)
 
     contact.postal_code = '12345678'
