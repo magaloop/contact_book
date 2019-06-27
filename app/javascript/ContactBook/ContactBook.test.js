@@ -110,7 +110,6 @@ describe('findNearDuplicates', () => {
   const address = 'Nice street 123'
   const postalCode = '12345'
   const city = 'Cozy Town'
-  const token = 'some-csrf-token'
 
   it('makes a GET request to /contacts/near_duplicates', () => {
     findNearDuplicates({ name, address, postalCode, city })
