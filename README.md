@@ -50,7 +50,7 @@ Make sure you have all the development dependencies installed:
 Clone the git repo:
 
 ```
-git clone git@bitbucket.org:magaloop/webapp.git
+git clone git@github.com:magaloop/contact_book.git
 ```
 
 Then:
