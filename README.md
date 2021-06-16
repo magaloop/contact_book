@@ -55,6 +55,7 @@ git clone git@github.com:magaloop/contact_book.git
 
 Then:
 
+  - Run `cd contact_book` to change directory
   - Run `bundle install` to install all needed gems
   - Run `yarn install` to install all JavaScript packages
   - Run `bin/rake db:setup` to setup the development and test databases
